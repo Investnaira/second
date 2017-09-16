@@ -1,0 +1,462 @@
+/* DOM Element */
+    /* All, <button> */
+    [type="button"],
+    [type="reset"],
+    [type="submit"],
+    button {
+        cursor: pointer;
+        outline: 0 !important
+    }
+        /* States > Active */
+        [type="button"]:active,
+        [type="reset"]:active,
+        [type="submit"]:active,
+        button:active {
+            animation: touch .3s ease-in-out
+        }
+            /* @keyframes > Touch */
+            @keyframes touch {
+                50% {
+                    filter: brightness(.95)
+                }
+            }
+
+    /* <a> */
+    a {
+        text-decoration: none !important
+    }
+
+    /* <body>
+            --- NOTE ---
+                Since all content is viewed from an <iframe>,
+                the web page is unscrollable.
+    */
+    body {
+        font-family: Roboto, "Calibri Light", Calibri, Arial;
+        min-height: 100vh;
+        padding-top: 40px
+    }
+
+    /* <main> */
+    main {
+        z-index: 4
+    }
+
+/* Components */
+    /* Body */
+    #body {
+        display: inline-block;
+        max-height: 100%;
+        overflow: hidden
+    }
+        /* <iframe> */
+        #body > iframe {
+            background-color: #EFEFEF;
+            border: 0;
+            height: 100%;
+            width: 100%
+        }
+
+    /* Dashboard */
+    #dashboard {
+        background-color: #333333;
+        box-shadow: 3px 0 3px 0 rgba(0, 0, 0, .3);
+        color: #EFEFEF;
+        display: inline-block;
+        height: 100%;
+        left: -300px;
+        position: absolute;
+        transition: .3s ease-in-out
+    }
+        /* All */
+        #dashboard > * {
+            padding: 0 5px;
+            width: 275px
+        }
+
+        /* Dashboard Label */
+        #dashboard > #dashboardLabel {
+            background-color: rgba(255, 255, 255, .2);
+            color: rgba(255, 255, 255, .4);
+            cursor: default;
+            font-size: 17.5px;
+            font-weight: 400;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%
+        }
+
+        /* Dashboard Menu */
+        #dashboard > #dashboardMenu {
+            padding-left: 0;
+            padding-right: 0;
+            width: 100%
+        }
+            /* All */
+            #dashboard > #dashboardMenu > * {
+                box-shadow: inset 0 0 0 500px rgba(255, 255, 255, .1);
+                padding-left: 5px;
+                padding-right: 5px
+            }
+                /* Icon */
+                #dashboard > #dashboardMenu > * > [data-id="icon"] {
+                    zoom: 1.1
+                }
+
+                /* Value */
+                #dashboard > #dashboardMenu > * > [data-id="value"] {
+                    max-width: 70%;
+                    padding-left: 5px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: pre
+                }
+
+            /* Dashboard Dropdown */
+            #dashboard > #dashboardMenu > .dashboard-dropdown {
+                font-weight: 500;
+                padding-bottom: 7.5px;
+                padding-top: 7.5px;
+                text-indent: 10px
+            }
+                /* Dashboard Dropdown Content */
+                #dashboard > #dashboardMenu > .dashboard-dropdown-content {
+                    display: block !important;
+                    padding: 0;
+                    transition: .3s ease-in-out;
+                    width: 100%
+                }
+
+                #dashboard > #dashboardMenu > .dashboard-dropdown-content[hidden] {
+                    height: 0;
+                    opacity: 0;
+                    pointer-events: none
+                }
+                    /* Dashboard Dropdown Item */
+                    #dashboard > #dashboardMenu > .dashboard-dropdown-content > .dashboard-dropdown-item {
+                        box-shadow: inset 0 0 0 500px rgba(255, 255, 255, .2);
+                        display: block;
+                        font-size: 90%;
+                        padding-bottom: 10px;
+                        padding-top: 10px;
+                    }
+                        /* Icon */
+                        #dashboard > #dashboardMenu > .dashboard-dropdown-content > .dashboard-dropdown-item > [data-id="icon"] {
+                            margin-left: 40px;
+                            margin-right: 7.5px
+                        }
+
+                        /* Value */
+                        #dashboard > #dashboardMenu > .dashboard-dropdown-content > .dashboard-dropdown-item > [data-id="value"] {
+                            max-width: 70%;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: pre
+                        }
+
+                /* Dashboard Caret */
+                #dashboard > #dashboardMenu > .dashboard-dropdown > [data-id="dropdownCaret"] {
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top: 5px solid rgba(255, 255, 255, .3);
+                    float: right;
+                    margin-right: 10px;
+                    margin-top: 7.5px;
+                    transition: .3s ease-in-out
+                }
+
+                #dashboard > #dashboardMenu > .dashboard-dropdown[data-selected] > [data-id="dropdownCaret"] {
+                    transform: rotate(270deg)
+                }
+
+            /* Dashboard Item */
+            #dashboard > #dashboardMenu > .dashboard-item {
+                display: block;
+                padding-bottom: 7.5px;
+                padding-top: 7.5px;
+                text-indent: 10px
+            }
+
+        /* Dashboard User Details */
+        #dashboard > #dashboardUserDetails {
+            align-items: center;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            padding-bottom: 30px;
+            padding-top: 15px
+        }
+            /* Dashboard User Details Picture */
+                /* Picture Container */
+                #dashboard > #dashboardUserDetails > #dashboardUserDetailsPicture > [data-id="pictureContainer"] {
+                    background-color: #787878;
+                    box-shadow: inset 0 0 0 500px rgba(0, 0, 0, .3);
+                    border: 1px solid rgba(255, 255, 255, .25);
+                    border-radius: 50%;
+                    cursor: pointer;
+                    height: 50px;
+                    transition: .3s ease-in-out;
+                    width: 50px
+                }
+                    /* States > Hover */
+                    #dashboard > #dashboardUserDetails > #dashboardUserDetailsPicture > [data-id="pictureContainer"]:hover {
+                        box-shadow: inset 0 0 0 500px rgba(255, 255, 255, .15)
+                    }
+
+            /* Dashboard User Details Detail */
+            #dashboard > #dashboardUserDetails > #dashboardUserDetailsDetail {
+                padding: 0 5%
+            }
+                /* User Name */
+                #dashboard > #dashboardUserDetails > #dashboardUserDetailsDetail > #userName {
+                    display: inline-block;
+                    font-size: 17.5px !important;
+                    font-weight: 400;
+                    max-width: 190px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    word-wrap: break-word;
+                    white-space: pre;
+                    width: 100%
+                }
+
+                /* Dashboard User Details Detail Online */
+                    /* User Status Online Indicator */
+                    #dashboard > #dashboardUserDetails > #dashboardUserDetailsDetail > #dashboardUserDetailsDetailOnline > #userOnlineStatusIndicator {
+                        background-color: #9A9A00;
+                        border-radius: 50%;
+                        box-shadow: inset 0 0 0 50px rgba(0, 0, 0, .05);
+                        display: inline-block;
+                        height: 10px;
+                        width: 10px
+                    }
+
+                    #dashboard > #dashboardUserDetails > #dashboardUserDetailsDetail > #dashboardUserDetailsDetailOnline > #userOnlineStatusValue {
+                        font-size: 12.5px !important
+                    }
+
+    /* Header Navigation */
+    #headerNavigation {
+        align-items: center;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+        color: #00A65A;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        left: 0;
+        padding: 0 5%;
+        padding-left: 0;
+        position: fixed;
+        text-align: center;
+        top: 0;
+        width: 95%;
+        z-index: 4
+    }
+        /* All */
+        #headerNavigation > * {
+            height: 40px;
+            padding-bottom: 2.5px;
+            padding-top: 2.5px
+        }
+
+        /* Brand */
+        #headerNavigation > #brand {
+            background-color: #00A65A;
+            color: #FFFFFF;
+            flex-basis: 25%;
+            flex-grow: 1;
+            font-size: 20px;
+            font-weight: 500;
+            max-width: 300px
+        }
+
+        /* Header Navigation Body */
+        #headerNavigation > #headerNavigationBody {
+            flex-basis: 75%;
+            flex-grow: 1
+        }
+            /* Dashboard Button */
+                /* <button> */
+                #headerNavigation > #headerNavigationBody > #dashboardButton > button {
+                    background-color: transparent !important;
+                    color: #00A65A !important;
+                    border: 0 !important;
+                    font-weight: 600 !important;
+                    font-size: 30px !important;
+                    margin-left: -5px
+                }
+
+            /* Header Navigation Search */
+                /* <form> */
+                #headerNavigation > #headerNavigationBody > #headerNavigationSearch > form {
+                    height: 65%
+                }
+                    /* All */
+                    #headerNavigation > #headerNavigationBody > #headerNavigationSearch > form > * {
+                        display: inline-block
+                    }
+
+                    /* <input> */
+                    #headerNavigation > #headerNavigationBody > #headerNavigationSearch > form > input[type="search"] {
+                        background-color: transparent !important;
+                        border: 0;
+                        border-bottom: 1px solid #787878;
+                        color: #333333;
+                        outline: 0 !important;
+                        padding-left: 7.5px;
+                        z-index: 1
+                    }
+
+                    #headerNavigation > #headerNavigationBody > #headerNavigationSearch > form > input[type="submit"] {
+                        background-color: #FFFFFF;
+                        border: 0;
+                        color: #00A65A;
+                        cursor: pointer;
+                        z-index: 2
+                    }
+                        /* States > Focus */
+                        #headerNavigation > #headerNavigationBody > #headerNavigationSearch > form > input[type="search"]:focus {
+                            border-bottom-color: #00A65A;
+                        }
+
+            /* Header Navigation User Details */
+            #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails {
+                padding-right: 5px
+            }
+                /* Detail */
+                    /* <button> */
+                    #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="detail"] > button {
+                        background-color: #FFFFFF!important;
+                        border: 0 !important;
+                        color: #333333 !important;
+                        margin: auto 2.5px
+                    }
+
+                    /* Detail */
+                    #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="detail"] > [data-id="detail"] {
+                        margin: auto 5px;
+                        width: 100%
+                    }
+                        /* All */
+                        #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="detail"] > [data-id="detail"] * {
+                            display: inline-block
+                        }
+
+                        /* Rating */
+                            /* All */
+                            #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="detail"] > [data-id="detail"] > [data-id="rating"] > * {
+                                cursor: default;
+                                display: inline-block;
+                                position: relative
+                            }
+
+                            /* Indicator */
+                            #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="detail"] > [data-id="detail"] > [data-id="rating"] > [data-id="indicator"] {
+                                background-color: #00FF00;
+                                border-radius: 50%;
+                                bottom: 2.5px;
+                                height: 5px;
+                                margin: auto 5px;
+                                width: 5px
+                            }
+
+                            /* Value */
+                            #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="detail"] > [data-id="detail"] > [data-id="rating"] > [data-id="value"] {
+                                right: 5px
+                            }
+
+                /* Picture Container */
+                #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="pictureContainer"] {
+                    border: 1px solid rgba(0, 0, 0, .1);
+                    border-radius: 50px;
+                    box-shadow: inset 0 0 0 500px rgba(0, 0, 0, .1);
+                    cursor: pointer;
+                    height: 35px;
+                    transition: .3s ease-in-out;
+                    width: 35px
+                }
+                    /* States > Hover */
+                    #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="pictureContainer"]:hover {
+                        box-shadow: inset 0 0 0 500px rgba(255, 255, 255, .2)
+                    }
+
+                /* Picture Container Menu */
+                #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="pictureContainerMenu"] {
+                    background-color: #FFFFFF;
+                    border: 1px solid #CFCFCF;
+                    border-radius: 2px;
+                    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, .3);
+                    color: #00A65A;
+                    opacity: 0;
+                    pointer-events: none;
+                    position: fixed;
+                    right: 10%;
+                    top: 40px;
+                    transition: .3s ease-in-out;
+                    width: 150px
+                }
+                    /* <ul> */
+                    #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="pictureContainerMenu"] > ul {
+                        margin: 0
+                    }
+                        /* <li> */
+                        #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="pictureContainerMenu"] > ul > li {
+                            border-bottom: 1px solid #CFCFCF;
+                            cursor: pointer;
+                            font-size: 15px;
+                            padding: 7.5px;
+                            transition: .3s ease-in-out
+                        }
+                            /* States */
+                                /* First Child */
+                                #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="pictureContainerMenu"] > ul > li:first-child {
+                                    border-top: 0
+                                }
+
+                                /* Hover */
+                                #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="pictureContainerMenu"] > ul > li:hover {
+                                    box-shadow: inset 0 0 0 500px rgba(0, 0, 0, .05)
+                                }
+
+                                /* Last Child */
+                                #headerNavigation > #headerNavigationBody > #headerNavigationUserDetails > [data-id="pictureContainerMenu"] > ul > li:last-child {
+                                    border-bottom: 0
+                                }
+
+    /* Loading Screen */
+    #loadingScreen {
+        align-items: center;
+        background-color: rgba(255, 255, 255, .975);
+        bottom: 0;
+        display: flex;
+        left: 0;
+        height: 100%;
+        justify-content: center;
+        margin: 0;
+        min-height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 5
+    }
+        /* <div> */
+        #loadingScreen > div {
+            animation: rotate 1s linear infinite;
+            border: 15px solid rgba(0, 0, 0, .75);
+            border-top-color: rgba(0, 166, 90, .75);
+            border-radius: 50%;
+            height: 65px;
+            width: 65px
+        }
+            /* @keyframes > Rotate */
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg)
+                }
+
+                to {
+                    transform: rotate(360deg)
+                }
+            }

@@ -1,0 +1,50 @@
+body{
+	margin: auto;
+	box-sizing: border-box;
+}
+.container_log{
+	width: 100%;
+	height: auto;
+	padding: 5% 10%;
+	background-image: url(../img/png/pexels-photo-259209.jpeg);
+	background-size:100%;
+	background-position:left;
+	background-repeat: no-repeat;
+}
+.vest_can{
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	display: block;
+}
+.log_in_form{
+	height: auto;
+	width: 40%;
+	margin: auto;
+	border-radius: 10px;
+	border:1px solid #ffffff;
+/*	margin-left: 35%;
+*/}
+.login_head{
+	text-transform:capitalize;
+	font-family: "Calibri";
+	color: #ffffff;
+	font-weight: 400;
+	font-size: 3em;
+	text-align: center;
+}
+.trans_lov{
+	text-align: center;
+}
+
+.trans_lov span{
+	font-size: 1.5em;
+}
+.trans_lov  input{
+	width: 70%;
+	border-radius: 3px;
+	border:1px solid transparent;
+	font-size: 1.5em !important;
+	margin-bottom: 5%;
+	padding: .4em;
+}
